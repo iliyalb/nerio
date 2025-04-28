@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import BlogPostList from "./pages/BlogPostList";
 import BlogPost from "./pages/BlogPost";
@@ -7,28 +8,18 @@ import FAQ from "./pages/FAQ";
 import Slider from "./pages/Slider";
 import Gallery from "./pages/Gallery";
 
-const routes: Record<string, React.FC> = {
-  index: Index,
-  "blog-post-list": BlogPostList,
-  "blog-post": BlogPost,
-  "contact-us": ContactUs,
-  faq: FAQ,
-  slider: Slider,
-  gallery: Gallery,
-};
-
-function getPageFromLocation(): keyof typeof routes {
-  const url = new URL(window.location.href);
-  const hash = url.hash.replace(/^#/, "");
-  const queryPage = url.searchParams.get("page");
-  if (queryPage && routes[queryPage]) return queryPage as keyof typeof routes;
-  if (hash && routes[hash]) return hash as keyof typeof routes;
-  return "index";
-}
-
-const App: React.FC = () => {
-  const PageComponent = routes[getPageFromLocation()] || Index;
-  return <PageComponent />;
-};
+const App: React.FC = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/blog-post-list" element={<BlogPostList />} />
+      <Route path="/blog-post" element={<BlogPost />} />
+      <Route path="/contact-us" element={<ContactUs />} />
+      <Route path="/faq" element={<FAQ />} />
+      <Route path="/slider" element={<Slider />} />
+      <Route path="/gallery" element={<Gallery />} />
+    </Routes>
+  </BrowserRouter>
+);
 
 export default App;
