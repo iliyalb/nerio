@@ -2,11 +2,13 @@
   "compilerOptions": {
     "target": "es6",
     "module": "esnext",
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"]
 }
