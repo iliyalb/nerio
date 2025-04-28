@@ -1,0 +1,13 @@
+{
+  "name": "nerio-ts-inline",
+  "version": "1.0.0",
+  "description": "Nerio static site converted to TypeScript with inline HTML",
+  "scripts": {
+    "build": "tsc",
+    "start": "lite-server"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "lite-server": "^2.6.1"
+  }
+}
