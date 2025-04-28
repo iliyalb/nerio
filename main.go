@@ -17,7 +17,9 @@ func main() {
 
 	http.HandleFunc("/blog", blogPostHandler)
 	http.HandleFunc("/contact", contactUsHandler)
-	http.HandleFunc("/faq", faqHandler)
+	http.HandleFunc("/faq", FAQHandler)
+	http.HandleFunc("/faq/search", SearchFAQHandler)
+	http.HandleFunc("/admin/faq", AdminFAQHandler)
 	http.HandleFunc("/gallery", galleryHandler)
 
 	log.Println("Server running on 8000...")
